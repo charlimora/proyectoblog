@@ -22,9 +22,10 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            {{--aquí llamo al componente que creé--}}
+            @livewire('navigation')
 
-            <!-- Page Heading -->
+            {{-- comento el siguiente fragmento de código de header que existía
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -32,7 +33,7 @@
                     </div>
                 </header>
             @endif
-
+            --}}
             <!-- Page Content -->
             <main>
                 {{ $slot }}
