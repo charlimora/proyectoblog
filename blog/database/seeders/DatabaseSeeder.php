@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         //se deja así, siempre en cuando en el archivo .env tengamos FILESYSTEM_DRIVER=public
+        Storage::deleteDirectory('posts');
         Storage::makeDirectory('posts');
 
         $this->call(UserSeeder::class);

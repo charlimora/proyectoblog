@@ -18,10 +18,10 @@ class PostSeeder extends Seeder
         //quiero crear una colección con todos los post creados
         $posts = Post::factory(100)->create();
 
-        foreach($posts as $alias){
-            //dentro llamaremos al factory ImageFactory
-            //También es necesario incluir otros campos de la tabla images
-            //como son imageable_id e imageable_type, los cuales pasaremos en un array
+        foreach($posts as $alias){ //abro el foreach
+            /*dentro llamaremos al factory ImageFactory
+            También es necesario incluir otros campos de la tabla images
+            como son imageable_id e imageable_type, los cuales pasaremos en un array */
             image::factory(1)->create([
                 'imageable_id'=> $alias->id,
                 //luego el tipo en este caso sería post, pero claro en otros casos sería el tipo requerido
@@ -30,10 +30,10 @@ class PostSeeder extends Seeder
         /*acudimos a la variable $posts creada más arriba. Con tags() llamo al método q está
         en el modelo Post y attach permite rellenar la tabla intermedia con datos: */
        // $posts->tags()->attach([1,2]);
-        $posts->tag()->attach([
+        $alias->tag()->attach([
             rand(1,4),
             rand(5,8)
         ]);
-        }
+        } //cierro foreach
     }
 }
