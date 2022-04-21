@@ -27,6 +27,13 @@ class PostSeeder extends Seeder
                 //luego el tipo en este caso sería post, pero claro en otros casos sería el tipo requerido
                 'imageable_type'=>Post::class
             ]);
+        /*acudimos a la variable $posts creada más arriba. Con tags() llamo al método q está
+        en el modelo Post y attach permite rellenar la tabla intermedia con datos: */
+       // $posts->tags()->attach([1,2]);
+        $posts->tag()->attach([
+            rand(1,4),
+            rand(5,8)
+        ]);
         }
     }
 }
