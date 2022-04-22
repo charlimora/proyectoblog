@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class="bg-gray-800" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
 
@@ -89,7 +89,7 @@
     </div>
 
     {{--Menú mobile, se visualizará en pantallas pequeñas. Reducir ventana navegador--}}
-    <div class="sm:hidden" id="mobile-menu">
+    <div class="sm:hidden" id="mobile-menu" x-show="open">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
