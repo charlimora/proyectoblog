@@ -29,7 +29,7 @@ class Post extends Model
 
     public function image(){
         //el segundo parámetro es el método que puse en la clase images
-        return $this->morphOne(images::class,'imageable');
+        return $this->morphOne(image::class,'imageable');
     }
 
 }
