@@ -11,11 +11,13 @@
                 con bg-center logro que la imagen esté centrada--}}
                 <article class="w-full h-80 bg-cover bg-center @if ($loop->first)
                     col-span-2
-                @endif" style="background-image: url({{$post->image->url}})">
+                @endif" style="background-image:url({{Storage::url($post->image->url)}})">
+
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <div>
                             @foreach ($post->tag as $etiqueta)
-                                <a href="" class="inline-block px-3 h-6 bg-gray-600 text-white rounded-full">{{$etiqueta->nombre}}</a>
+                                <p>{{$etiqueta->color}}</p>
+                                <a href="" class="inline-block px-3 h-6 bg-{{$etiqueta->color}} text-white rounded-full">{{$etiqueta->nombre}}</a>
                             @endforeach
                         </div>
                         <h1 class="text-4xl text-white leading-8 font-bold">
