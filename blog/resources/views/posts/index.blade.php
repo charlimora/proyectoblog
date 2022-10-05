@@ -11,13 +11,15 @@
                 con bg-center logro que la imagen esté centrada--}}
                 <article class="w-full h-80 bg-cover bg-center @if ($loop->first)
                     col-span-2
-                @endif" style="background-image:url({{Storage::url($post->image->url)}})">
-
+                {{--en la siguiente línea $post es el que recorre el array.
+                    Tener en cuenta que image es el nombre de la relación (se mira en el modelo Post cómo aparece.
+                    Además, url es un campo de la tabla images--}}
+                {{-- @endif" style="background-image:url({{Storage::url($post->image->url)}})"> De esta manera es si la imagen estaba descargada--}}
+                    @endif" style="background-image:url({{$post->image->url}})">
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <div>
                             @foreach ($post->tag as $etiqueta)
-                                <p>{{$etiqueta->color}}</p>
-                                <a href="" class="inline-block px-3 h-6 bg-{{$etiqueta->color}} text-white rounded-full">{{$etiqueta->nombre}}</a>
+                                <a href="" class="inline-block px-3 h-6 bg-{{$etiqueta->color}}-600 text-white rounded-full">{{$etiqueta->color}}</a>
                             @endforeach
                         </div>
                         <h1 class="text-4xl text-white leading-8 font-bold">
