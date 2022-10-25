@@ -14,4 +14,16 @@ class PostController extends Controller
         $posts = Post::where('status',2)->latest('id')->paginate(8);
         return view('posts.index',compact('posts'));
     }
+
+    public function show(Post $post){
+
+        $similares = Post::where('categoria_id', $post->categoria_id)
+                            ->where('status', 2)
+                            ->where('id', '!=', $post->id)
+                            ->latest('id') //lo ordena de manera descendente por id
+                            ->take(4) //solo trae 4 registros
+                            ->get();
+
+        return view('posts.show', compact('post', 'similares'));
+    }
 }

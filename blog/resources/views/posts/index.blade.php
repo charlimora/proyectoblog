@@ -23,7 +23,8 @@
                             @endforeach
                         </div>
                         <h1 class="text-4xl text-white leading-8 font-bold">
-                            <a href="">
+                            <a href="{{route('posts.show', $post)}}">
+                            {{--otra forma sería <a href="posts/{{$post->id}}"> --}}
                                 {{$post->nombre}}
                             </a>
                         </h1>

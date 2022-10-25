@@ -8,6 +8,8 @@ Además, para hacerle seguimiento a esa ruta, le asignamos un nombre con el mét
 No confundir este post.index con la ruta del view*/
 Route::get('/', [PostController::class,'index'])->name('posts.index');
 
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
